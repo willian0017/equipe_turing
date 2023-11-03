@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace equipe_turing.Futebol.Services.Time
+namespace equipe_turing.Futebol.Services
 {
-    public class CrudTime
+    public class CrudEndereco
     {
         
     }

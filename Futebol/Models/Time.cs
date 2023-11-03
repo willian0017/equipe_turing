@@ -9,8 +9,8 @@ namespace equipe_turing.Futebol.Models
     {
         public string Nome { get; set; }
         public int AnoFundacao { get; set; }
-        public string Mascote { get; set; }
-        public string Presidente { get; set; }
-        public List<Endereco> Enderecos { get; set; }
+        public Endereco Endereco { get; set; }
+        public List<Jogador> Jogadores { get; set; }
+        public Tecnico Tecnico { get; set; }
     }
 }

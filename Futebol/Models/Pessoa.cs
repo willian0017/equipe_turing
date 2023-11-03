@@ -5,11 +5,15 @@ using System.Threading.Tasks;
 
 namespace equipe_turing.Futebol.Models
 {
-    public class Jogador
+    public class Pessoa : BaseModel
     {
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
-        public byte Numero { get; set; }
         public int AnoNascimento { get; set; }
+
+        public override string ToString()
+        {
+            return $"{this.Id}; {this.Nome}; {this.Sobrenome}; {this.AnoNascimento};";
+        }
     }
 }

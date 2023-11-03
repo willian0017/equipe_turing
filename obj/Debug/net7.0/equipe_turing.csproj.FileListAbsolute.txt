@@ -1,0 +1,14 @@
+/var/www/html/study/equipe_turing/obj/Debug/net7.0/equipe_turing.GeneratedMSBuildEditorConfig.editorconfig
+/var/www/html/study/equipe_turing/obj/Debug/net7.0/equipe_turing.AssemblyInfoInputs.cache
+/var/www/html/study/equipe_turing/obj/Debug/net7.0/equipe_turing.AssemblyInfo.cs
+/var/www/html/study/equipe_turing/obj/Debug/net7.0/equipe_turing.csproj.CoreCompileInputs.cache
+/var/www/html/study/equipe_turing/bin/Debug/net7.0/equipe_turing
+/var/www/html/study/equipe_turing/bin/Debug/net7.0/equipe_turing.deps.json
+/var/www/html/study/equipe_turing/bin/Debug/net7.0/equipe_turing.runtimeconfig.json
+/var/www/html/study/equipe_turing/bin/Debug/net7.0/equipe_turing.dll
+/var/www/html/study/equipe_turing/bin/Debug/net7.0/equipe_turing.pdb
+/var/www/html/study/equipe_turing/obj/Debug/net7.0/equipe_turing.dll
+/var/www/html/study/equipe_turing/obj/Debug/net7.0/refint/equipe_turing.dll
+/var/www/html/study/equipe_turing/obj/Debug/net7.0/equipe_turing.pdb
+/var/www/html/study/equipe_turing/obj/Debug/net7.0/equipe_turing.genruntimeconfig.cache
+/var/www/html/study/equipe_turing/obj/Debug/net7.0/ref/equipe_turing.dll
