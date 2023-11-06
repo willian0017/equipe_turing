@@ -11,7 +11,7 @@ namespace equipe_turing.Futebol.Models
 
         public override string ToString()
         {
-            return base.ToString() + $" {this.Numero}";
+            return base.ToString() + $"{this.Numero}";
         }
     }
 }

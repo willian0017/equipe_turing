@@ -13,7 +13,7 @@ namespace equipe_turing.Futebol.Models
 
         public override string ToString()
         {
-            return $"{this.Id}; {this.Nome}; {this.Sobrenome}; {this.AnoNascimento};";
+            return $"{this.Id};{this.Nome};{this.Sobrenome};{this.AnoNascimento};";
         }
     }
 }

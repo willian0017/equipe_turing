@@ -10,7 +10,7 @@ namespace equipe_turing.Futebol.Models
         public string EstiloDeJogo { get; set; }
         public override string ToString()
         {
-            return base.ToString() + $"Estilo de jogo: {this.EstiloDeJogo}";
+            return base.ToString() + $"{this.EstiloDeJogo}";
         }
 
     }

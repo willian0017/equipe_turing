@@ -11,5 +11,10 @@ namespace equipe_turing.Futebol.Models
         public string Estado { get; set; }
         public int Numero { get; set; }
 
+        public override string ToString()
+        {
+            return $"{this.Cidade};{this.Estado};{this.Numero}";
+        }
+
     }
 }

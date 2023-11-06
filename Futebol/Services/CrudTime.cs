@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using equipe_turing.Futebol.Models;
 
@@ -10,12 +11,12 @@ namespace equipe_turing.Futebol.Services
     {
         private static int proximoId;
 
-        public void Create(Time model)
+        public void Create(Time  model)
         {
             model.Id = proximoId++;
+            string linha = JsonSerializer.Serialize(model);
 
             StreamWriter Writer = new StreamWriter("./Futebol/Banco/Time.txt", true);
-            string linha = model.ToString();
 
             try
             {
@@ -55,7 +56,8 @@ namespace equipe_turing.Futebol.Services
             while (linha != null)
             {
                 var time = linha.Split(';');
-                // Time model = new Time { Id = Convert.ToInt32(time[0]), Nome = time[1], AnoFundacao = Convert.ToInt32(time[2]), Enderecos = time[3], Jogadores = time[4], Tecnico = time[5] };
+
+                // Time model = new Time { Id = Convert.ToInt32(time[0]), Nome = time[1], AnoFundacao = Convert.ToInt32(time[2]), Endereco = time[3], Jogadores = time[4], Tecnico = time[5] };
                 // times.Add(model);
                 linha = reader.ReadLine();
             }
@@ -72,7 +74,7 @@ namespace equipe_turing.Futebol.Services
             {
                 time.Nome = model.Nome;
                 time.AnoFundacao = model.AnoFundacao;
-                time.Enderecos = model.Enderecos;
+                time.Endereco = model.Endereco;
                 time.Jogadores = model.Jogadores;
                 time.Tecnico = model.Tecnico;
 
