@@ -1,1 +1,1 @@
-{"Nome":"flamengo","AnoFundacao":1800,"Endereco":{"Cidade":"rj","Estado":"rj","Numero":304},"Jogadores":[{"Numero":9,"Nome":"willian","Sobrenome":"michel","AnoNascimento":2002,"Id":0}],"Tecnico":{"EstiloDeJogo":"ofensiva","Nome":"maria","Sobrenome":"clara","AnoNascimento":2000,"Id":0},"Id":0}
+[{"Nome":"a","AnoFundacao":2,"Endereco":{"Cidade":"a","Estado":"a","Numero":2},"Jogadores":[],"Tecnico":{"EstiloDeJogo":"a","Nome":"a","Sobrenome":"a","AnoNascimento":2,"Id":0},"Id":1}]

@@ -8,22 +8,38 @@ namespace equipe_turing.Futebol.Services
 {
     internal class CrudBase<B> : ICrud<B> where B : BaseModel
     {
+        private static int proximoId;
         public void Create(B model)
         {
-            throw new NotImplementedException();
+            proximoId++;
+            model.Id = proximoId;
+            var modelName = model.GetType().Name;
+
+            StreamWriter Writer = new StreamWriter($"./Futebol/Banco/{modelName}.txt", true);
+            string linha = model.ToString();
+
+            try
+            {
+                Writer.WriteLine(linha);
+                Writer.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+            }
         }
 
-        public void Delete(int id)
+        public virtual void Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<B> Read()
+        public virtual IEnumerable<B> Read()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(B model)
+        public virtual void Update(B model)
         {
             throw new NotImplementedException();
         }

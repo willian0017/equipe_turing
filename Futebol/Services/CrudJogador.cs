@@ -6,28 +6,9 @@ using equipe_turing.Futebol.Models;
 
 namespace equipe_turing.Futebol.Services
 {
-    public class CrudJogador
+    class CrudJogador : CrudBase<Jogador>
     {
-        private static int proximoId;
-        public void Create(Jogador model)
-        {
-            model.Id = proximoId++;
-
-            StreamWriter Writer = new StreamWriter("./Futebol/Banco/Jogador.txt", true);
-            string linha = model.ToString();
-
-            try
-            {
-                Writer.WriteLine(linha);
-                Writer.Close();
-            }
-            catch (Exception e)
-            {
-                 Console.WriteLine("Exception: " + e.Message);
-            }
-        }
-
-        public void Delete(int id)
+        public override void Delete(int id)
         {
             List<Jogador> jogadores = Read().ToList();
             Jogador jogador = jogadores.Find(x => x.Id == id);
@@ -45,7 +26,7 @@ namespace equipe_turing.Futebol.Services
             }
         }
 
-        public IEnumerable<Jogador> Read()
+        public override IEnumerable<Jogador> Read()
         {
             StreamReader reader = new StreamReader("./Futebol/Banco/Jogador.txt");
             List<Jogador> jogadores = new List<Jogador>();
@@ -58,11 +39,12 @@ namespace equipe_turing.Futebol.Services
                 jogadores.Add(model);
                 linha = reader.ReadLine();
             }
+            
             reader.Close();
             return jogadores;
         }
 
-        public void Update(Jogador model)
+        public override void Update(Jogador model)
         {
             List<Jogador> lista = Read().ToList();
             Jogador jogador = lista.Find(x => x.Id == model.Id);

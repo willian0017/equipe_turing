@@ -7,29 +7,9 @@ using equipe_turing.Futebol.Models;
 
 namespace equipe_turing.Futebol.Services
 {
-    public class CrudTime
+    class CrudTime : CrudBase<Time>
     {
-        private static int proximoId;
-
-        public void Create(Time  model)
-        {
-            model.Id = proximoId++;
-            string linha = JsonSerializer.Serialize(model);
-
-            StreamWriter Writer = new StreamWriter("./Futebol/Banco/Time.txt", true);
-
-            try
-            {
-                Writer.WriteLine(linha);
-                Writer.Close();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Exception: " + e.Message);
-            }
-        }
-
-        public void Delete(int id)
+        public override void Delete(int id)
         {
             List<Time> times = Read().ToList();
             Time time = times.Find(x => x.Id == id);
@@ -37,17 +17,15 @@ namespace equipe_turing.Futebol.Services
             if (time != null)
             {
                 times.Remove(time);
+                string linha = JsonSerializer.Serialize(times);
                 StreamWriter Writer = new StreamWriter("./Futebol/Banco/Time.txt");
 
-                foreach (var timeAtual in times)
-                {
-                    Writer.WriteLine(timeAtual.ToString());
-                }
+                Writer.WriteLine(linha);
                 Writer.Close();
             }
         }
 
-        public IEnumerable<Time> Read()
+        public override IEnumerable<Time> Read()
         {
             StreamReader reader = new StreamReader("./Futebol/Banco/Time.txt");
             List<Time> times = new List<Time>();
@@ -55,17 +33,17 @@ namespace equipe_turing.Futebol.Services
 
             while (linha != null)
             {
-                var time = linha.Split(';');
-
-                // Time model = new Time { Id = Convert.ToInt32(time[0]), Nome = time[1], AnoFundacao = Convert.ToInt32(time[2]), Endereco = time[3], Jogadores = time[4], Tecnico = time[5] };
-                // times.Add(model);
+                var time = JsonSerializer.Deserialize<Time>(linha);
+                Time model = new Time { Id = Convert.ToInt32(time.Id), Nome = time.Nome, AnoFundacao = Convert.ToInt32(time.AnoFundacao), Endereco = time.Endereco,  Tecnico = time.Tecnico};
+                times.Add(model);
                 linha = reader.ReadLine();
             }
+            
             reader.Close();
             return times;
         }
 
-        public void Update(Time model)
+        public override void Update(Time model)
         {
             List<Time> lista = Read().ToList();
             Time time = lista.Find(x => x.Id == model.Id);
@@ -78,15 +56,10 @@ namespace equipe_turing.Futebol.Services
                 time.Jogadores = model.Jogadores;
                 time.Tecnico = model.Tecnico;
 
+                string linha = JsonSerializer.Serialize(time);
                 StreamWriter Writer = new StreamWriter("./Futebol/Banco/Time.txt");
-
-                foreach (var timeAtual in lista)
-                {
-                    Writer.WriteLine(timeAtual.ToString());
-                }
-
+                Writer.WriteLine(linha);
                 Writer.Close();
-
             }
         }
     }

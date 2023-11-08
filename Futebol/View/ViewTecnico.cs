@@ -18,27 +18,52 @@ namespace equipe_turing.Futebol.View
 
             string condicao = Console.ReadLine();
 
-            // if (condicao == "1")
-            // {
-            //     crudTecnico.Create(tecnico);
-            // }
-            // else if (condicao == "2")
-            // {
-            //     crudTecnico.Update(tecnico);
-            // }
-            // else if (condicao == "3")
-            // {
-            //     crudTecnico.Delete(tecnico.Id);
-            // }
-            // else if (condicao == "4")
-            // {
-            //     var tecnicoes = crudTecnico.Read();
-            //     tecnicoes.ForEach(x => Console.WriteLine(x));
-            // }
-            // else
-            // {
-            //     Console.WriteLine("Opção inválida");
-            // }
+            if (condicao == "1")
+            {
+                inserirDados(tecnico);
+                crudTecnico.Create(tecnico);
+            }
+            else if (condicao == "2")
+            {
+                obterId(tecnico);
+                inserirDados(tecnico);
+                crudTecnico.Update(tecnico);
+            }
+            else if (condicao == "3")
+            {
+                obterId(tecnico);
+                crudTecnico.Delete(tecnico.Id);
+            }
+            else if (condicao == "4")
+            {
+                var tecnicoes = crudTecnico.Read();
+                tecnicoes.ToList().ForEach(x => Console.WriteLine(x));
+            }
+            else
+            {
+                Console.WriteLine("Opção inválida");
+            }
+        }
+
+        private void obterId(Tecnico tecnico)
+        {
+            Console.WriteLine("Digite o Id");
+            tecnico.Id = int.Parse(Console.ReadLine());
+        }
+
+        private void inserirDados(Tecnico tecnico)
+        {
+            Console.WriteLine("Digite seu nome.");
+            tecnico.Nome = Console.ReadLine();
+
+            Console.WriteLine("Digite seu sobrenome.");
+            tecnico.Sobrenome = Console.ReadLine();
+
+            Console.WriteLine("Digite seu ano de nascimento.");
+            tecnico.AnoNascimento = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite seu estilo de jogo.");
+            tecnico.EstiloDeJogo = Console.ReadLine();
         }
     }
 }
